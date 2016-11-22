@@ -1,18 +1,18 @@
+﻿// Code your design here
 /*Definindo um contador Crescente / Decrescente de 4 bits que vai 
 de 0 a 15 e de 15 a 0, sendo que após o ciclo de clock o contador 
 incrementa ou decrementa dependendo do sentido da contagem.*/
-
-`timescale 1ns/1ns //Diretiva necessária para poder simular
 
 // 4'd0 representa o número zero com 4 bits na base decimal
 // 1'b0 representa o número zero com 1 bit na base binária (aqui usado para representar um valor lógico, ativo/inativo, direita/esquerda)
 
 module Contador1 (
 input logic clk,
-				reset, 
-				direction,// 
-				
+			reset, 
+			
 output logic [3:0] cont);
+  
+  logic direction;
 
 always_ff @(posedge clk) //Flip Flop com Borda positiva de Clock
 

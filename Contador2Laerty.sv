@@ -1,9 +1,10 @@
-module Contador1 (
+module Contador2 (
 input logic clk,
-				reset, 
-				direction,
+			reset, 
+			
 output logic [3:0] cont);
-
+  
+ logic direction;
 
 always_ff @(posedge clk)
 
@@ -15,20 +16,15 @@ if(reset)
 	end
 else
 	if(direction == 1'b0)
-		if(saida == 4'd15)
-			begin
+      if(cont == 4'd15)
 			direction <= 1'b1;
-			cont <= cont - 4'd1;
-			end
+			
 		else
 			cont <= cont + 4'd1;
 	else
-		if(saida == 4'd0)
-			begin
+      if(cont == 4'd0)
 			direction <= 1'b0;
-			cont = cont + 4'd1;
-			end
-		else
+	  else
 			cont <= cont - 4'd1;
 end
 endmodule
